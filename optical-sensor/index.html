@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Optical Sensor Lab</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <div class="eyebrow">PHYSICS • INTERACTIVE LAB</div>
+        <h1>Optical Sensor</h1>
+        <p>Follow photons from the light source to the photodetector — then watch the signal become data.</p>
+      </div>
+      <div class="actions">
+        <button id="pauseBtn" class="button primary">Pause</button>
+        <button id="resetBtn" class="button">Reset</button>
+      </div>
+    </header>
+
+    <section class="simulation-card">
+      <div class="sim-header">
+        <div>
+          <strong>Optical bench</strong>
+          <span id="simStatus">● LIVE</span>
+        </div>
+        <div class="legend">
+          <span><i class="dot photon"></i>photons</span>
+          <span><i class="dot reflection"></i>reflected light</span>
+          <span><i class="dot signal"></i>electrical signal</span>
+        </div>
+      </div>
+      <div class="viewport-wrap">
+        <canvas id="viewport"></canvas>
+        <div class="stage-label source-label">LIGHT SOURCE<br><small>LED / laser</small></div>
+        <div class="stage-label object-label">TARGET<br><small>reflective object</small></div>
+        <div class="stage-label detector-label">PHOTODETECTOR<br><small>photodiode</small></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel controls">
+        <div class="panel-title">Experiment controls</div>
+        <label>Light intensity <output id="intensityOut">70%</output>
+          <input id="intensity" type="range" min="0" max="100" value="70">
+        </label>
+        <label>Target distance <output id="distanceOut">55 cm</output>
+          <input id="distance" type="range" min="20" max="100" value="55">
+        </label>
+        <label>Amplifier gain <output id="gainOut">4×</output>
+          <input id="gain" type="range" min="1" max="10" value="4">
+        </label>
+        <label>Wavelength <output id="waveOut">650 nm</output>
+          <input id="wavelength" type="range" min="400" max="900" value="650">
+        </label>
+        <div class="formula">E = hc / λ</div>
+      </div>
+
+      <div class="panel explanation">
+        <div class="panel-title">What is happening?</div>
+        <div class="step active"><b>01</b><span><strong>Emit</strong> — the source sends photons toward the target.</span></div>
+        <div class="step"><b>02</b><span><strong>Reflect</strong> — the target sends part of the light back.</span></div>
+        <div class="step"><b>03</b><span><strong>Detect</strong> — photons generate charge carriers in the photodiode.</span></div>
+        <div class="step"><b>04</b><span><strong>Process</strong> — the tiny photocurrent is amplified and digitized.</span></div>
+      </div>
+    </section>
+
+    <section class="panel telemetry">
+      <div class="panel-title">Live signal chain</div>
+      <div class="chain">
+        <div class="metric"><small>OPTICAL POWER</small><strong id="optical">—</strong><div class="bar"><i id="bar1"></i></div></div>
+        <div class="connector">→</div>
+        <div class="metric"><small>PHOTOCURRENT</small><strong id="current">—</strong><div class="bar"><i id="bar2"></i></div></div>
+        <div class="connector">→</div>
+        <div class="metric"><small>AMPLIFIER</small><strong id="amplified">—</strong><div class="bar"><i id="bar3"></i></div></div>
+        <div class="connector">→</div>
+        <div class="metric"><small>12-BIT ADC</small><strong id="adc">—</strong><div class="bar"><i id="bar4"></i></div></div>
+        <div class="connector">→</div>
+        <div class="metric result"><small>MEASURED LEVEL</small><strong id="measurement">—</strong><div class="bar"><i id="bar5"></i></div></div>
+      </div>
+      <div class="scope-title">Photodetector output / oscilloscope</div>
+      <canvas id="scope"></canvas>
+    </section>
+
+    <footer>
+      <span>Optical Sensor Lab · Three.js</span>
+      <a href="https://github.com/YOUR_USERNAME/YOUR_REPOSITORY" target="_blank" rel="noreferrer">View source on GitHub ↗</a>
+    </footer>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
