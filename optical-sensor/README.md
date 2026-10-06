@@ -1,7 +1,7 @@
 # Optical Sensor
 
 A small interactive Three.js simulation for a physics presentation.
-
+see live : https://optical-sensor.netlify.app/
 ## Run locally
 
 ```bash
