@@ -1,4 +1,4 @@
-# Optical Sensor Lab
+# Optical Sensor
 
 A small interactive Three.js simulation for a physics presentation.
 
@@ -10,7 +10,6 @@ python3 -m http.server 8080
 ```
 
 Open `http://localhost:8080`.
-
 
 ## Files
 
